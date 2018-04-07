@@ -1,22 +1,22 @@
 <?php 
 
-require_once("vendor/autoload.php");
+require_once("vendor/autoload.php");//Sempre padrao do projeto
+//
+use \Slim\Slim;
+use \Hcode\Page;
 
-$app = new \Slim\Slim();
+$app = new Slim();
 
 $app->config('debug', true);
 
 $app->get('/', function() {
-    
-	//echo "OK";
-	$sql = new Hcode\DB\Sql();
 
-	$results = $sql->select("SELECT * FROM tb_users");
+	$page = new Page();//Chama o Contrustor e adiciona o header na tela
 
-	echo json_encode($results);
+	$page->setTpl("index");//chama o .html que esta com o conteudo corpo email.
 
 });
 
-$app->run();
+$app->run();//função que realiza a execução de tudo o que foi solicitado acima 
 
  ?>
