@@ -12,13 +12,13 @@ class Page{
 		"data"=>[]
 
 	];
-
-	public function __construct($opts = array()){
+												//passando diretorio, se nao passar nada como padrao e a /views.	
+	public function __construct($opts = array(), $tpl_dir = "/views/"){
 
 		$this->optinos = array_merge ($this->defaults, $opts);//Mescla os array//
 
 		$config = array(
-					"tpl_dir"       => $_SERVER["DOCUMENT_ROOT"]."/views/",//localiza dentro do projeto a pasta especificada.
+					"tpl_dir"       => $_SERVER["DOCUMENT_ROOT"].$tpl_dir,//localiza dentro do projeto a pasta especificada.
 					"cache_dir"     =>$_SERVER["DOCUMENT_ROOT"]."/views-cache/",
 					"debug"         => false // set to false to improve the speed
 				   );
